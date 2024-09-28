@@ -18,7 +18,7 @@ include "../config/database.php";
     $userid=$_SESSION["userid"];
     // echo $userid;
 // 
- }
+}
 }
 if(isset($_GET['add_to_card'])){    
         $userid=$_SESSION["userid"];
@@ -31,8 +31,6 @@ if(isset($_GET['add_to_card'])){
             }
         $sql="INSERT INTO `order_items`(`user_id`,`product_id`,`price`)VALUE('$userid','$id','$products_price') ";
         $conn->query($sql);
-         
-   
     }
 
 }
@@ -44,7 +42,7 @@ if(isset($_GET['add_to_card'])){
             <div class="logo"><img src=" assets/images/payment_methods/72x72/mollie.png" alt="logo"></div>
 
             <ul>
-               
+    
                 <li><a href="#bookes">parts</a></li>
                 <li><a href="pages/logout.php">log out</a></li>
                 <?php
@@ -60,7 +58,7 @@ if(isset($_GET['add_to_card'])){
                         <img src="assets/images/shopping.svg">
                         <span class="quantity" id="quantity">
                             <?php
-                                   
+                                
                                 $userid=$_SESSION["userid"];
                                 $stmt ="SELECT * FROM `order_items` WHERE `user_id`= '$userid'";
                                 $result=$conn->query($stmt);
@@ -68,17 +66,16 @@ if(isset($_GET['add_to_card'])){
                             
                             
                             ?></span>
-                      
+                    
                     </div>
                     </a>
                 </li>
             </ul>
-              <form action="index.php" method="POST"  class="form">
+                <form action="index.php" method="POST"  class="form">
                 <div class="search_box_ginral ">
                     <input type="text" placeholder="search " name="search_box" class="search_box">
                     <button name="search" class="search_button" type="submit"> <img src=" assets/images/search.png"
-                            alt="search icon"></button>
-                              
+                            alt="search icon"></button>                            
                 </div>
                 
             </form>
@@ -97,7 +94,7 @@ if(isset($_GET['add_to_card'])){
                             $products_type=       $row["products_type"];                
                             if($search_box != ""){
                                 ?>
-                               <form action="index.php?id=<?PHP $products_id?>" methed="POST">
+                            <form action="index.php?id=<?PHP $products_id?>" methed="POST">
                                     <div class="sub_items_contner">
                                         <div class="part_prodect">
                                             <div class="card_prodect">
