@@ -9,7 +9,7 @@
 
     </header>
 <?php
-// imprt database conntion
+// import database conntion
 include "../config/database.php";
   session_start();
   if($_SESSION["log_in"]){
