@@ -150,6 +150,7 @@ $user_id = $_SESSION['user_id'];
     </header>
     <script>
         $(document).ready(function() {
+            // This code is for testing:
             // let cart = [
             //     {name:"product 1",price:10.00},
             //     {name:"product 2",price:20.00},

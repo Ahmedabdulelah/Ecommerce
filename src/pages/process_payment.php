@@ -4,23 +4,28 @@ include '../../config/database.php';
 
 $user_id = isset($_POST['user_id']) ? intval($_POST['user_id']) : 0;
 $total_price = isset($_POST['total_price']) ? floatval($_POST['total_price']) : 0;
+
+// This code is for testing 
 if ($total_price <= 0) {
     $total_price = 50.00;
 }
+
 $payment_method = isset($_POST['payment_method']) ? $_POST['payment_method'] : '';
 $cvv = isset($_POST['cvv']) ? $_POST['cvv'] : '';
 $address = isset($_POST['address']) ? $_POST['address'] : '';
 $zip_code = isset($_POST['zip_code']) ? $_POST['zip_code'] : '';
+$card_number = isset($_POST['card_number']) ? $_POST['card_number'] : '';
 
-
-echo "User ID: $user_id<br>";
-echo "Total Price: $total_price<br>";
-echo "Payment Method: $payment_method<br>";
+// This code is for testing
+// echo "User ID: $user_id<br>";
+// echo "Total Price: $total_price<br>";
+// echo "Payment Method: $payment_method<br>";
+// echo "card number: $card_number<br>";
 
 if ($user_id && $total_price > 0 && !empty($payment_method)) {
-    $sql = 'INSERT INTO orders (user_id, total_price, payment_method, cvv, address, zip_code) VALUES (?, ?, ?, ?, ?, ?)';
+    $sql = 'INSERT INTO orders (user_id, total_price, payment_method, card_number, cvv, address, zip_code) VALUES (?, ?, ?, ?, ?, ?, ?)';
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("idssss", $user_id, $total_price, $payment_method, $cvv, $address, $zip_code);
+    $stmt->bind_param("idsssss", $user_id, $total_price, $payment_method,$card_number, $cvv, $address, $zip_code);
 
     if ($stmt->execute()) {
         // echo "Order added successfully";
