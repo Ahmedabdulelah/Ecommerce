@@ -56,7 +56,6 @@ $sql_query_create_table4 = "CREATE TABLE IF NOT EXISTS order_items (
     order_id INT(6),
     product_id INT(6),
     user_id int DEFAULT NULL,
-    quantity INT,
     price DECIMAL(10,2),
     FOREIGN KEY (order_id) REFERENCES orders(id),
     FOREIGN KEY (product_id) REFERENCES products(id)
